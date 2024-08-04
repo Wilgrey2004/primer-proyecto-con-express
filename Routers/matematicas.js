@@ -4,6 +4,10 @@ const { matematicas } = require("../datos/cursos").infocursos;
 
 const routerMatematicas = express.Router();
 
+//middleware
+
+routerMatematicas.use(express.json());
+
 routerMatematicas.get("/", (req, res) => {
   res.send(JSON.stringify(matematicas));
 });
@@ -23,8 +27,10 @@ routerMatematicas.get("/:tema", (req, res) => {
 
 //post
 routerMatematicas.post("/", (req, res) => {
-  let cursoNuemoMatematicas = req.body;
-  matematicas.push(cursoNuemoMatematicas);
+  const cursoNuevo = req.body;
+  console.log(cursoNuevo);
+  matematicas.push(cursoNuevo);
+
   res.send(JSON.stringify(matematicas));
 });
 //put
