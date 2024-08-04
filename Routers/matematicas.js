@@ -28,7 +28,6 @@ routerMatematicas.get("/:tema", (req, res) => {
 //post
 routerMatematicas.post("/", (req, res) => {
   const cursoNuevo = req.body;
-  console.log(cursoNuevo);
   matematicas.push(cursoNuevo);
 
   res.send(JSON.stringify(matematicas));
