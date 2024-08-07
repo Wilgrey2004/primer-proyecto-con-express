@@ -21,6 +21,7 @@ routerProgramacion.get("/:lenguaje", (req, res) => {
       .status(404)
       .send(`no se encontraron cursos del lenguaje ${lenguaje}`);
   }
+  
   if (req.query.ordenar === "vistas") {
     res.send(JSON.stringify(resultados.sort((a, b) => a.vistas - b.vistas)));
   } else {
